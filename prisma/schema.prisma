@@ -9,3 +9,23 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+// 모델을 정의할 때는 파스칼 컨벤션에 따라 단어의 첫 번째 글자는 대문자
+// 이름은 단수
+
+model Issue {
+  id Int @id @default(autoincrement())
+  // mysql: varchar(191) //프리즈마 문자열 타입은 MySQL의 바차 191로 간주됨 -> 따라서, 기본 값을 덮어쓰고 255개의 문자열을 저장하도록 수정
+  title String @db.VarChar(255)
+  description String @db.Text
+  status Status @default(OPEN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// eunm: 값 구분을 띄어쓰기로 함.(따라서 쉼표 사용x) 컨벤션으로 대문자 영어를 사용함
+enum Status {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
