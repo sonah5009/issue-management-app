@@ -7,14 +7,8 @@ import { FaTasks } from "react-icons/fa";
 const NavBar = () => {
   const currentPath = usePathname(); // browser api 에 의존하므로 client component 로 전환해야 함
   const links = [
-    {
-      label: "Dashboard",
-      href: "/",
-    },
-    {
-      label: "Issues",
-      href: "/issues",
-    },
+    { label: "Dashboard", href: "/" },
+    { label: "Issues", href: "/issues" },
   ];
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 items-center h-14">
