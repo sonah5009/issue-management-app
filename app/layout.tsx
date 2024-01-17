@@ -1,11 +1,13 @@
 import "@radix-ui/themes/styles.css";
+import "./globals.css";
+import "./theme-config.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import NavBar from "./NavBar";
-import { Theme } from "@radix-ui/themes";
+import { Theme, ThemePanel } from "@radix-ui/themes";
 
 const inter = Inter({ subsets: ["latin"] });
+// NextJs 기본 폰트: inter
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Theme>
+        <Theme appearance="light" accentColor="yellow">
           <NavBar />
           <main className="p-5">{children}</main>
         </Theme>
