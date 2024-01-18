@@ -6,7 +6,7 @@ import prisma from "@/prisma/client";
 // zod 라이브러리의 오브젝트 메소들를 통해 유효성 검사 스키마 작성
 // title, diescription 만 기본값 존재 x 니까, 이것만 스키마 작성
 const createIssueSchema = z.object({
-  title: z.string().min(1).max(255),
+  title: z.string().min(1, "글자가 짧아요").max(255),
   description: z.string().min(1),
 });
 
